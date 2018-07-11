@@ -1,0 +1,43 @@
+---
+title: "Data Wrangling Steps"
+author: "Anthony Stachowitz"
+date: "July 11, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readxl)
+```
+
+### 1. Load dataset
+
+This loads the individual datasets.   
+```{r}
+bosto_dataset_raw <- read_excel("C:/Users/Anthony/Desktop/R studio projects/boston/bosto_dataset_raw.xls")
+```
+
+### 3. Remove specific values
+
+The Boston data set includes 14 variables. For my data analisis we are able to reduce the number of variable to down to 5.
+```{r}
+boston_wrangled <- bosto_dataset_raw[,c(1, 11:14)]
+```
+
+### 4. Change headers names to better reflect the data
+
+There are some header names that are confusing and need to be more specific. I have changed the headers so that they are all consistent.
+```{r}
+names(boston_wrangled) <- c("Per Cap Crime", "Pupil-Teacher Ratio", "Proportion of African Americans", "Percent of Lower Status", "Median Home Value")
+```
+
+### 5. Check data set for NA's.
+
+Check the data set for NA's. If there are NA's fill them in with the mean of the column.(No NA's were found)
+
+```{r}
+list_na <- colnames(boston_wrangled)[ apply(boston_wrangled, 2, anyNA) ]
+list_na
+```
+
