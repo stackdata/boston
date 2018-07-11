@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Project Idea:  Boston Housing Dataset (Small dataset (506 cases) provided by the U.S. Census Service concerning housing in Boston Mass..
+## Project Idea:  Boston Housing Dataset (Small dataset (506 cases)) provided by the U.S. Census Service concerning housing in Boston Mass..
 
 
 #### Central Question
